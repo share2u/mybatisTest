@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--别名， mapper文件可以省略-->
+    <typeAliases>
+        <package name="cn.share2u.t1.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <!--jdbc的事务管理-手动提交commit和回滚rollback-->
+            <transactionManager type="jdbc"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/student?useUnicode=true&amp;characterEncoding=utf-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="tiger"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--指定映射文件-->
+    <mappers>
+       <mapper resource="mapper/StudentMapper.xml"></mapper>
+    </mappers>
+
+</configuration>
